@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textFormTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Деталі піци"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/editPizzaName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Назва піци"
+            android:inputType="textCapWords"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/editPizzaDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Інгредієнти / Опис"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/editPizzaPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ціна (грн)"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/editPizzaDiameter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Діаметр (см)"
+            android:inputType="number"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/editPizzaCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Кількість калорій (ккал)"
+            android:inputType="number"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnSavePizza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Зберегти"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>
