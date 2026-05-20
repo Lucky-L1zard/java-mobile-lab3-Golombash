@@ -11,7 +11,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private EditText editName, editDescription, editPrice, editDiameter, editCalories;
     private AppDatabase db;
-    private int pizzaId = -1; // нехай -1 означає режим створення, інакше — редагування (за id)
+    private int pizzaId = -1; // нехай -1 означає режим створення, інакше — редагування (за вказаним id)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,8 @@ public class DetailActivity extends AppCompatActivity {
                     editName.setText(pizza.getName());
                     editDescription.setText(pizza.getDescription());
                     editPrice.setText(String.valueOf(pizza.getPrice()));
-                    editDiameter.setText(String.valueOf(pizza.getDiameter()));
+                    //додаткова логіка, щоб запобігти помилкам пов'язаним з українською локалізацією
+                    editDiameter.setText(String.valueOf(pizza.getDiameter()).trim().replace(',', '.'));
                     editCalories.setText(String.valueOf(pizza.getCalories()));
                 });
             }

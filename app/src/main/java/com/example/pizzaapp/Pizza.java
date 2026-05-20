@@ -12,7 +12,7 @@ public class Pizza {
     private String name;
     private String description;
     private double price;
-    private int diameter;
+    private double diameter;
     private int calories;
 
     public Pizza(String name, String description, double price, int diameter, int calories) {
@@ -35,7 +35,7 @@ public class Pizza {
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
 
-    public int getDiameter() { return diameter; }
+    public double getDiameter() { return diameter; }
     public void setDiameter(int diameter) { this.diameter = diameter; }
 
     public int getCalories() { return calories; }
