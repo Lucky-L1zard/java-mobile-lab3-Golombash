@@ -47,8 +47,7 @@ public class DetailActivity extends AppCompatActivity {
                     editName.setText(pizza.getName());
                     editDescription.setText(pizza.getDescription());
                     editPrice.setText(String.valueOf(pizza.getPrice()));
-                    //додаткова логіка, щоб запобігти помилкам пов'язаним з українською локалізацією
-                    editDiameter.setText(String.valueOf(pizza.getDiameter()).trim().replace(',', '.'));
+                    editDiameter.setText(String.valueOf(pizza.getDiameter()));
                     editCalories.setText(String.valueOf(pizza.getCalories()));
                 });
             }
@@ -60,8 +59,9 @@ public class DetailActivity extends AppCompatActivity {
         try {
             String name = editName.getText().toString().trim();
             String description = editDescription.getText().toString().trim();
-            String priceStr = editPrice.getText().toString().trim();
-            String diameterStr = editDiameter.getText().toString().trim();
+            //додаткова логіка, щоб запобігти помилкам пов'язаним з локалізацією
+            String priceStr = editPrice.getText().toString().trim().replace(',', '.');
+            String diameterStr = editDiameter.getText().toString().trim().replace(',', '.');
             String caloriesStr = editCalories.getText().toString().trim();
 
             // Валідація на порожні поля
@@ -70,8 +70,8 @@ public class DetailActivity extends AppCompatActivity {
             }
 
             // Парсинг числових значень (може викликати NumberFormatException)
-            double price = Double.parseDouble(priceStr);
-            int diameter = Integer.parseInt(diameterStr);
+            double price = Math.round(Double.parseDouble(priceStr) * 100.0) / 100.0; //щоб не було більше двох чисел після коми
+            double diameter = Math.round(Double.parseDouble(diameterStr) * 10.0) / 10.0; //те саме
             int calories = Integer.parseInt(caloriesStr);
 
             if (price <= 0 || diameter <= 0 || calories < 0) {
